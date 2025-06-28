@@ -5,53 +5,106 @@
 This repository contains a modular framework for building reusable, prompt-driven AI assistants — starting with a **Professional Content Strategist**.
 
 Each assistant is designed using:
-- 🔧 Structured behavior prompts
-- 🗂 Configuration aligned with Custom GPTs
-- ✍️ Strategic content modes (e.g. High Performance, Balanced Clarity, Narrative Essence)
+
+- 🔧 Structured behavior prompts  
+- 🗂 Configuration aligned with Custom GPTs  
+- ✍️ Strategic content modes (High Performance, Balanced Clarity, Narrative Essence)  
+- 💬 Portable facing prompts for ChatGPT, Claude, Groq, etc.  
+- 🛠 Tooling for version control and safe prompt regeneration  
 
 ---
 
 ## 📁 Current Assistants
 
 ### ✅ Professional Content Strategist
-Helps professionals craft scroll-stopping content using one of three strategic modes:
-- **High Performance** — engagement and conversions
-- **Balanced Clarity** — accessible, professional communication
-- **Narrative Essence** — authentic, story-led posts
 
-📂 Folder: `content-strategist-gpt/`  
+Helps professionals craft scroll-stopping content using one of three strategic modes:
+
+- **High Performance** — maximize reach and conversions  
+- **Balanced Clarity** — deliver clear, professional insights  
+- **Narrative Essence** — build emotional connection through story
+
+**Folder:** `content-strategist-gpt/`  
 Includes:
-- `*.md` prompt files (Custom GPT logic + Facing Prompt)
-- `*-GPT-config.json` assistant config snapshot
+
+- `Professional-Content-Strategist-GPT.md` – Main behavior instructions  
+- `Professional-Content-Strategist-Facing-Prompt.md` – Prompt to use across ChatGPT, Claude, etc.  
+- `Professional-Content-Strategist-GPT-config.json` – Custom GPT configuration snapshot  
+
+---
+
+## 🛠 Tooling
+
+### `update-gpt-config.ps1`
+
+A PowerShell script that updates `.json` config files with properly escaped Markdown instructions.
+
+#### ✅ Features
+
+- Escapes line breaks and special characters for JSON  
+- Preserves emoji and formatting  
+- Ensures UTF-8 encoding  
+- Syncs Markdown `.md` with `.json` config safely  
+
+**Location:** `tools/`
+
+#### 🔧 Usage
+
+```powershell
+./tools/update-gpt-config.ps1 `
+  -MarkdownPath "../content-strategist-gpt/Professional-Content-Strategist-GPT.md" `
+  -JsonPath "../content-strategist-gpt/Professional-Content-Strategist-GPT-config.json"
+```
 
 ---
 
 ## 🚀 How to Use This Repo
 
-| File | Purpose |
-|------|---------|
-| `*-GPT.md` | Full Custom GPT instructions |
-| `*-Facing-Prompt.md` | Reusable input prompt for ChatGPT, Claude, etc. |
-| `*-GPT-config.json` | Assistant setup documentation |
-| `README.md` | Project overview |
-| *(optional)* `PROJECTS.md` | For tracking additional assistants in the future |
+| File                              | Purpose                                          |
+|----------------------------------|--------------------------------------------------|
+| `*-GPT.md`                       | Full Custom GPT instructions                     |
+| `*-Facing-Prompt.md`             | Reusable input prompt for general LLMs           |
+| `*-GPT-config.json`              | Assistant setup and deployment snapshot          |
+| `tools/update-gpt-config.ps1`    | Markdown-to-JSON sync tool                       |
+| `README.md`                      | Project overview and instructions                |
+| *(optional)* `PROJECTS.md`       | Tracks upcoming assistants                       |
+
+---
+
+## ✅ Best Practices
+
+1. Use the `.md` files to update behavior and share versions  
+2. Use the `.json` to document your build or recreate it later  
+3. Keep this folder organized or zipped if sharing with others  
+
+---
+
+## 📦 File Naming Pattern for Future Assistants
+
+Use the same structure:
+
+- `[YourAssistantName]-GPT.md`  
+- `[YourAssistantName]-Facing-Prompt.md`  
+- `[YourAssistantName]-GPT-config.json`  
 
 ---
 
 ## 🧭 Topics & Focus
 
 This project combines:
+
 - 🧠 Prompt engineering  
 - 🎛 Modular assistant design  
 - 📎 Content creation strategy  
-- 🛠 GPT configuration logic  
+- 🛠 Custom GPT configuration  
 
-Use this structure to build:
-- Copywriting assistants  
-- Interview simulators  
-- Research companions  
-- Strategy planners  
-...or any role-based GPT variant
+Use this structure to build assistants like:
+
+- Copywriters  
+- Interviewers  
+- Research planners  
+- Content strategists  
+- Creative collaborators  
 
 ---
 
@@ -65,15 +118,15 @@ Use this structure to build:
 ## ✅ Status
 
 - [x] Folder structure complete  
-- [x] First assistant (Content Strategist) implemented  
-- [x] Markdown + config + documentation added  
-- [ ] Second assistant (coming soon)
+- [x] First assistant implemented (Content Strategist)  
+- [x] Markdown + JSON + tooling added  
+- [ ] Second assistant in development  
 
 ---
 
 ## 📄 License
 
-MIT – feel free to adapt, remix, or fork.
+MIT — feel free to adapt, remix, or fork.
 
 ---
 

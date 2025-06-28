@@ -1,69 +1,91 @@
-# 🧠 Professional Content Strategist GPT – Project Files
+# 🧠 Professional Content Strategist GPT
 
-This package contains all the necessary components to understand, edit, and replicate the **Professional Content Strategist** custom GPT assistant.
-
----
-
-## 📁 Included Files
-
-### 1. `Professional-Content-Strategist-GPT.md`
-**Purpose:** Defines the assistant’s full behavior and logic.
-
-- Describes the three strategic content modes:
-  - High Performance
-  - Balanced Clarity
-  - Narrative Essence
-- Includes tone guidelines, structure breakdowns, and prompt engineering tips
-- Use this as the **source of truth** for your GPT instructions field
+This assistant helps professionals craft impactful social media content using one of **three strategic modes** — **High Performance**, **Balanced Clarity**, or **Narrative Essence**. Each mode aligns with different goals, tones, and audiences, using modern storytelling, copywriting, and **prompt engineering** techniques.
 
 ---
 
-### 2. `Professional-Content-Strategist-Facing-Prompt.md`
-**Purpose:** A reusable prompt template for use **outside** of the Custom GPT builder
+## ✅ Purpose
 
-- Works with tools like ChatGPT, Claude, or Notion AI
-- Contains all required inputs (mode, persona, audience, topic, etc.)
-- Includes formatting, tone, structure, and expected output layout
+- Help professionals write scroll-stopping content across different tones and formats  
+- Enable repeatable, testable strategies using structured prompting  
+- Support modern content formats (carousel, article, video, story)  
+- Encourage SEO-aware phrasing, audience targeting, and real personalization  
 
 ---
 
-### 3. `Professional-Content-Strategist-GPT-config.json`
+## 🗂 Files
+
+### 📄 `Professional-Content-Strategist-GPT.md`
+
+Main instruction set (used in the `instructions` field of the `.json` config):
+
+- Explains the 3 strategic content modes
+- Details tone, hook, structure, CTA, design and prompt tips per mode
+- Defines input structure (mode, persona, topic, audience, etc.)
+- Specifies output format and explanation breakdown
+- **Includes optional strategic enhancers**:
+  - Use Case Framing
+  - Authority Signals
+  - Question-Based Hooks
+  - Comparative Positioning
+  - Formatting Tips for AI indexing
+- Uses advanced prompt engineering techniques:
+  - Scrambled Prompting
+  - Emotion Shaping
+  - Interpretive Drift
+  - Prompt Chaining
+  - Recursive Self-Improvement
+
+---
+
+### 📄 `Professional-Content-Strategist-Facing-Prompt.md`
+
+This is a condensed version of the assistant’s purpose and logic, formatted as a **"facing prompt"** — usable in ChatGPT, Claude, or any AI tool that supports structured prompts.
+
+Includes:
+
+- Input field list (mode, persona, audience, topic, etc.)
+- Mode-based tone, structure, and formatting tips
+- Expected output structure
+- Optimization notes aligned with strategic enhancers
+
+---
+
+### 🧠 `Professional-Content-Strategist-GPT-config.json`
+
 **Purpose:** Configuration reference file for the assistant’s full setup
 
-- Mirrors the setup you created in OpenAI’s GPT builder
+- Mirrors the setup created in OpenAI’s Custom GPT builder
 - Includes:
-  - Name and description
-  - Instructions (from the `.md`)
+  - Assistant name and description
+  - `instructions` field (synced from `.md`)
   - Welcome message
-  - Starter prompts
-  - Model (`gpt-4`)
-- ⚠️ **Note:** OpenAI doesn’t currently support `.json` imports — this file is for backup or manual replication
+  - Conversation starters
+  - Model: `gpt-4`
+- Emojis and formatting are UTF-8 safe and properly escaped
+
+> ⚠️ Note: OpenAI doesn’t currently support `.json` imports.  
+> This file is for **backup**, **version control**, and **manual recreation** in the GPT builder.
+
+
+### 🔗 Live Custom GPT
+
+👉 [Launch the assistant on ChatGPT](https://chatgpt.com/g/g-685e778055e881919209238549e5f902-professional-content-strategist?model=gpt-4)
 
 ---
 
 ## ✅ Best Practices
 
-1. Use the `.md` files to update behavior and share versions
-2. Use the `.json` to document your build or recreate it later
-3. Keep this folder organized or zipped if sharing with others
+1. Use the `.md` files to update behavior and share versions  
+2. Use the `.json` to document your build or recreate it later  
+3. Keep this folder organized or zipped if sharing with others  
 
 ---
 
 ## 📦 File Naming Pattern for Future Assistants
 
 Use the same structure:
-- `[YourAssistantName]-GPT.md`
-- `[YourAssistantName]-Facing-Prompt.md`
-- `[YourAssistantName]-GPT-config.json`
 
----
-
-## 🎯 Try the Live Assistant
-
-🟢 [Launch the Professional Content Strategist GPT](https://chat.openai.com/g/g-685e778055e881919209238549e5f902-professional-content-strategist?model=gpt-4o)
-
-This public version of the assistant is hosted on OpenAI’s GPT platform and uses the same logic and structure defined in this folder.
-
----
-
-> Built as part of a modular, prompt-driven AI assistant framework.
+- `[YourAssistantName]-GPT.md`  
+- `[YourAssistantName]-Facing-Prompt.md`  
+- `[YourAssistantName]-GPT-config.json`  
