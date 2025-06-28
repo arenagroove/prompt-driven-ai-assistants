@@ -58,4 +58,12 @@ Use the same structure:
 
 ---
 
+## 🎯 Try the Live Assistant
+
+🟢 [Launch the Professional Content Strategist GPT](https://chat.openai.com/g/g-685e778055e881919209238549e5f902-professional-content-strategist?model=gpt-4o)
+
+This public version of the assistant is hosted on OpenAI’s GPT platform and uses the same logic and structure defined in this folder.
+
+---
+
 > Built as part of a modular, prompt-driven AI assistant framework.
