@@ -4,8 +4,8 @@ This repository contains a modular framework for building reusable, prompt-drive
 
 Each assistant is designed using:
 - 🔧 Structured behavior prompts
-- 🗂 Configuration for Custom GPTs
-- ✍️ Strategic content modes (e.g., High Performance, Balanced Clarity, Narrative Essence)
+- 🗂 Configuration aligned with Custom GPTs
+- ✍️ Strategic content modes (e.g. High Performance, Balanced Clarity, Narrative Essence)
 
 ---
 
@@ -13,14 +13,14 @@ Each assistant is designed using:
 
 ### ✅ Professional Content Strategist
 Helps professionals craft scroll-stopping content using one of three strategic modes:
-- **High Performance** — engagement + conversions
+- **High Performance** — engagement and conversions
 - **Balanced Clarity** — accessible, professional communication
 - **Narrative Essence** — authentic, story-led posts
 
 📂 Folder: `content-strategist-gpt/`  
 Includes:
-- `*.md` prompt files (Custom GPT + Facing Prompt)
-- `*-GPT-config.json` setup file
+- `*.md` prompt files (Custom GPT logic + Facing Prompt)
+- `*-GPT-config.json` assistant config snapshot
 
 ---
 
@@ -29,10 +29,10 @@ Includes:
 | File | Purpose |
 |------|---------|
 | `*-GPT.md` | Full Custom GPT instructions |
-| `*-Facing-Prompt.md` | Reusable input prompt for ChatGPT/Claude |
-| `*-GPT-config.json` | Assistant config snapshot |
+| `*-Facing-Prompt.md` | Reusable input prompt for ChatGPT, Claude, etc. |
+| `*-GPT-config.json` | Assistant setup documentation |
 | `README.md` | Project overview |
-| *(optional)* `PROJECTS.md` | (For multi-assistant tracking in future)
+| *(optional)* `PROJECTS.md` | For tracking additional assistants in the future |
 
 ---
 
@@ -44,12 +44,12 @@ This project combines:
 - 📎 Content creation strategy  
 - 🛠 GPT configuration logic  
 
-You can fork this structure to build:
+Use this structure to build:
 - Copywriting assistants  
 - Interview simulators  
 - Research companions  
 - Strategy planners  
-...or any role-based GPT variant.
+...or any role-based GPT variant
 
 ---
 
@@ -64,14 +64,14 @@ You can fork this structure to build:
 
 - [x] Folder structure complete  
 - [x] First assistant (Content Strategist) implemented  
-- [x] Markdown + config + docs added  
+- [x] Markdown + config + documentation added  
 - [ ] Second assistant (coming soon)
 
 ---
 
 ## 📄 License
 
-MIT – feel free to adapt or remix.
+MIT – feel free to adapt, remix, or fork.
 
 ---
 
