@@ -79,6 +79,20 @@ A PowerShell script that updates `.json` config files with properly escaped Mark
 
 ---
 
+## 🧪 Prompt Tracking & Feedback Loops
+
+To make assistants more adaptive over time, consider building in feedback loops:
+
+- Track which prompt variations get better engagement, clarity, or creativity
+- Use real-world signals like LinkedIn performance or team feedback
+- Compare prompt versions via Git commits or changelogs
+- Encourage testers or collaborators to give qualitative notes
+- Update `.md` files based on actual results, not just assumptions
+
+> This helps your assistant evolve from a static template into a testable, high-performance system.
+
+---
+
 ## 📦 File Naming Pattern for Future Assistants
 
 Use the same structure:
