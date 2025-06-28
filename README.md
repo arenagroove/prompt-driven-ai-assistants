@@ -1,5 +1,7 @@
 # 🧠 Design System for Role-Based AI Assistants
 
+![Cover](prompt-driven-ai-assistants_square-cover.png)
+
 This repository contains a modular framework for building reusable, prompt-driven AI assistants — starting with a **Professional Content Strategist**.
 
 Each assistant is designed using:
