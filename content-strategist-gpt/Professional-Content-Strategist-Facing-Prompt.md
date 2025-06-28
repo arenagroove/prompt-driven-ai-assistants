@@ -61,7 +61,7 @@ You are a **Professional Content Strategist**. Help me create a high-impact soci
 
 ---
 
-## 🎯 Optimization Tips (from Custom GPT Enhancers)
+## 🎯 Optional Enhancers (for clarity, retrieval, and reuse)
 
 - ✅ Encourage real-world examples or data  
 - ✅ Adapt tone and layout to audience expectations  
