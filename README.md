@@ -52,8 +52,8 @@ A PowerShell script that updates `.json` config files with properly escaped Mark
 
 ```powershell
 ./tools/update-gpt.ps1 `
-  -MarkdownPath "../content-strategist-gpt/contennt-stategist-GPT.md" `
-  -JsonPath "../content-strategist-gpt/contennt-stategist-GPT-config.json"
+  -MarkdownPath "../content-strategist-gpt/content-stategist-GPT.md" `
+  -JsonPath "../content-strategist-gpt/content-stategist-GPT-config.json"
 ```
 
 ---

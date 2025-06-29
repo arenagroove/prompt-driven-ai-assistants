@@ -15,7 +15,7 @@ This assistant helps professionals craft impactful social media content using on
 
 ## 🗂 Files
 
-### 📄 `contennt-stategist-GPT.md`
+### 📄 `content-stategist-GPT.md`
 
 Main instruction set (used in the `instructions` field of the `.json` config):
 
@@ -67,7 +67,7 @@ Includes:
 > ⚠️ Note: OpenAI doesn’t currently support `.json` imports.  
 > This file is for **backup**, **version control**, and **manual recreation** in the GPT builder.
 
-> For tool capabilities and runtime settings, see `contennt-stategist-GPT-Capabilities.md`.
+> For tool capabilities and runtime settings, see `content-stategist-GPT-Capabilities.md`.
 
 ---
 
