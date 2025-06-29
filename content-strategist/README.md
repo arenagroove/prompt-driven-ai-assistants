@@ -15,7 +15,7 @@ This assistant helps professionals craft impactful social media content using on
 
 ## 🗂 Files
 
-### 📄 `Professional-Content-Strategist-GPT.md`
+### 📄 `contennt-stategist-GPT.md`
 
 Main instruction set (used in the `instructions` field of the `.json` config):
 
@@ -38,7 +38,7 @@ Main instruction set (used in the `instructions` field of the `.json` config):
 
 ---
 
-### 📄 `Professional-Content-Strategist-Facing-Prompt.md`
+### 📄 `content-strategist-facing-prompt.md`
 
 This is a condensed version of the assistant’s purpose and logic, formatted as a **"facing prompt"** — usable in ChatGPT, Claude, or any AI tool that supports structured prompts.
 
@@ -51,21 +51,37 @@ Includes:
 
 ---
 
-### 🧠 `Professional-Content-Strategist-GPT-config.json`
+### 🧠 `content-strategist-GPT-config.json`
 
 **Purpose:** Configuration reference file for the assistant’s full setup
 
-- Mirrors the setup created in OpenAI’s Custom GPT builder
+- Mirrors the setup created in OpenAI’s Custom GPT builder  
 - Includes:
-  - Assistant name and description
-  - `instructions` field (synced from `.md`)
-  - Welcome message
-  - Conversation starters
-  - Model: `gpt-4`
+  - Assistant name and description  
+  - `instructions` field (synced from `.md`)  
+  - Welcome message  
+  - Conversation starters  
+  - Model: `gpt-4` or `gpt-4o` (depending on current setup)  
 - Emojis and formatting are UTF-8 safe and properly escaped
 
 > ⚠️ Note: OpenAI doesn’t currently support `.json` imports.  
 > This file is for **backup**, **version control**, and **manual recreation** in the GPT builder.
+
+> For tool capabilities and runtime settings, see `contennt-stategist-GPT-Capabilities.md`.
+
+---
+
+### 🧪 `content-strategist-GPT-capabilities.md`
+
+**Purpose:** Documents runtime capabilities and assistant settings from the Custom GPT builder UI.
+
+- Covers model version, enabled tools (e.g. web browsing, DALL·E, code interpreter)  
+- Includes welcome message and conversation starters  
+- Tracks whether memory, uploaded knowledge files, or Actions are used  
+- Complements the `.json` config file (which does not include tools or UI settings)
+
+> Use this file as a **snapshot of behavior and permissions** configured via the GPT UI.  
+> It helps ensure transparency and reproducibility as your assistants evolve.
 
 
 ### 🔗 Live Custom GPT
@@ -87,5 +103,5 @@ Includes:
 Use the same structure:
 
 - `[YourAssistantName]-GPT.md`  
-- `[YourAssistantName]-Facing-Prompt.md`  
+- `[YourAssistantName]-facing-prompt.md`  
 - `[YourAssistantName]-GPT-config.json`  

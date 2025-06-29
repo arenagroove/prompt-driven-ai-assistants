@@ -24,18 +24,18 @@ Helps professionals craft scroll-stopping content using one of three strategic m
 - **Balanced Clarity** — deliver clear, professional insights  
 - **Narrative Essence** — build emotional connection through story
 
-**Folder:** `content-strategist-gpt/`  
+**Folder:** `content-strategist/`  
 Includes:
 
-- `Professional-Content-Strategist-GPT.md` – Main behavior instructions  
-- `Professional-Content-Strategist-Facing-Prompt.md` – Prompt to use across ChatGPT, Claude, etc.  
-- `Professional-Content-Strategist-GPT-config.json` – Custom GPT configuration snapshot  
+- `content-strategist-GPT.md` – Main behavior instructions  
+- `content-strategist-facing-prompt.md` – Prompt to use across ChatGPT, Claude, etc.  
+- `content-strategist-GPT-config.json` – Custom GPT configuration snapshot  
 
 ---
 
 ## 🛠 Tooling
 
-### `update-gpt-config.ps1`
+### `update-gpt.ps1`
 
 A PowerShell script that updates `.json` config files with properly escaped Markdown instructions.
 
@@ -51,9 +51,9 @@ A PowerShell script that updates `.json` config files with properly escaped Mark
 #### 🔧 Usage
 
 ```powershell
-./tools/update-gpt-config.ps1 `
-  -MarkdownPath "../content-strategist-gpt/Professional-Content-Strategist-GPT.md" `
-  -JsonPath "../content-strategist-gpt/Professional-Content-Strategist-GPT-config.json"
+./tools/update-gpt.ps1 `
+  -MarkdownPath "../content-strategist-gpt/contennt-stategist-GPT.md" `
+  -JsonPath "../content-strategist-gpt/contennt-stategist-GPT-config.json"
 ```
 
 ---
@@ -63,9 +63,9 @@ A PowerShell script that updates `.json` config files with properly escaped Mark
 | File                              | Purpose                                          |
 |----------------------------------|--------------------------------------------------|
 | `*-GPT.md`                       | Full Custom GPT instructions                     |
-| `*-Facing-Prompt.md`             | Reusable input prompt for general LLMs           |
+| `*-facing-prompt.md`             | Reusable input prompt for general LLMs           |
 | `*-GPT-config.json`              | Assistant setup and deployment snapshot          |
-| `tools/update-gpt-config.ps1`    | Markdown-to-JSON sync tool                       |
+| `tools/update-gpt.ps1`    	   | Markdown-to-JSON sync tool                       |
 | `README.md`                      | Project overview and instructions                |
 | *(optional)* `PROJECTS.md`       | Tracks upcoming assistants                       |
 
@@ -98,7 +98,7 @@ To make assistants more adaptive over time, consider building in feedback loops:
 Use the same structure:
 
 - `[YourAssistantName]-GPT.md`  
-- `[YourAssistantName]-Facing-Prompt.md`  
+- `[YourAssistantName]-facing-prompt.md`  
 - `[YourAssistantName]-GPT-config.json`  
 
 ---
