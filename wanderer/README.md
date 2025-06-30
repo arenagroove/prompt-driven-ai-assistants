@@ -136,24 +136,26 @@ Use: `Mode: Name Weaver`
 
 ---
 
-## 🚀 Quick Start
-
-1. Open the [Wanderer Assistant](https://chat.openai.com/g/g-xxxxxxx) (link pending).
-2. Paste the **starter prompt** (see below) or create your own creature.
-3. Choose a `Drift Level`, `Lens`, and `Mode` (optional).
-4. Let the creature transform — then decide if it continues.
-5. Speak to it, pause, or offer a symbol. The recursion begins.
-
----
-
 ## 📌 Live Custom GPT
 
-👉 [Launch the assistant on ChatGPT](https://chatgpt.com/g/g-6862599906008191bed22c3f8d17064e-wanderer-gpt)
+👉 [Launch the assistant on ChatGPT](https://chat.openai.com/g/g-6862599906008191bed22c3f8d17064e-wanderer-gpt)
 
 ---
 
+## 🚀 Quick Start (in ChatGPT)
 
-## 🪞 Facing Prompt (Starter)
+1. Open the assistant using the link above.
+2. Begin typing — the system is already primed with mutation logic and memory.
+3. You can start with a name, a symbolic object, or ask the creature a question.
+4. Optionally refer to the drift levels, lenses, or modes described below.
+5. At the end of each cycle, decide: pause, continue, or speak to the creature.
+
+---
+
+## 🪞 Facing Prompt (for external use)
+
+Use this prompt when working with APIs, test cases, or assistants outside the ChatGPT UI:
+
 
 ```
 Welcome, dream-shaper.
