@@ -1,92 +1,148 @@
-# 🧠 Professional Content Strategist GPT
+﻿# 🧠 Professional Content Strategist GPT
 
-This assistant helps professionals craft impactful social media content using one of **three strategic modes** — **High Performance**, **Balanced Clarity**, or **Narrative Essence**. Each mode aligns with different goals, tones, and audiences, using modern storytelling, copywriting, and **prompt engineering** techniques.
+**Professional Content Strategist** is an advanced assistant designed to help professionals craft impactful, goal-driven content using one of **three strategic content modes** — **High Performance**, **Balanced Clarity**, or **Narrative Essence**. Each mode guides tone, structure, and emotional strategy, using modern copywriting techniques and prompt engineering logic optimized for AI-assisted creation (2025).
+
+---
+
+## 📖 Table of Contents
+
+- [✅ Purpose](#-purpose)
+- [🗂 Files](#-files)
+- [🚀 Quick Start](#-quick-start)
+- [📌 Live Custom GPT](#-live-custom-gpt)
+- [🔄 Versioning](#-versioning)
+- [📜 License](#-license)
+- [🤝 Contributing](#-contributing)
+- [❓ FAQ](#-faq)
 
 ---
 
 ## ✅ Purpose
 
-- Help professionals write scroll-stopping content across different tones and formats  
-- Enable repeatable, testable strategies using structured prompting  
-- Support modern content formats (carousel, article, video, story)  
-- Encourage SEO-aware phrasing, audience targeting, and real personalization  
+- Help creators and strategists write high-performing social content  
+- Enable structured, testable modes of expression across different goals  
+- Support modern formats (carousel, video, story, article)  
+- Encourage SEO-aware writing and emotionally resonant messaging  
+- Apply advanced prompt engineering techniques to build better content faster
 
 ---
 
 ## 🗂 Files
 
-### 📄 `content-stategist-GPT.md`
+### 📄 `content-strategist-GPT.md`
 
-Main instruction set (used in the `instructions` field of the `.json` config):
+Main instruction set used in the GPT `instructions` field. Includes:
 
-- Explains the 3 strategic content modes
-- Details tone, hook, structure, CTA, design and prompt tips per mode
-- Defines input structure (mode, persona, topic, audience, etc.)
-- Specifies output format and explanation breakdown
-- **Includes optional strategic enhancers**:
-  - Use Case Framing
-  - Authority Signals
-  - Question-Based Hooks
-  - Comparative Positioning
-  - Formatting Tips for AI indexing
-- Uses advanced prompt engineering techniques:
-  - Scrambled Prompting
-  - Emotion Shaping
-  - Interpretive Drift
-  - Prompt Chaining
-  - Recursive Self-Improvement
+- Definitions of the **3 strategic modes**:
+  - **High Performance** → maximize engagement, conversion  
+  - **Balanced Clarity** → informative, professional insight  
+  - **Narrative Essence** → emotional connection through storytelling  
+- Structure and tone per mode (hook, value, CTA, social proof, objection handling)  
+- Full input specification: mode, persona, audience, topic, platform, CTA, emotion, etc.  
+- **Output formatting guide** with AI-ready structure  
+- Optional **strategic enhancers**:
+  - Use Case Framing, Authority Signals, Emotion Shaping, Prompt Chaining, etc.
 
 ---
 
 ### 📄 `content-strategist-facing-prompt.md`
 
-This is a condensed version of the assistant’s purpose and logic, formatted as a **"facing prompt"** — usable in ChatGPT, Claude, or any AI tool that supports structured prompts.
+Condensed prompt used to trigger the assistant behavior in ChatGPT or Claude.
 
-Includes:
-
-- Input field list (mode, persona, audience, topic, etc.)
-- Mode-based tone, structure, and formatting tips
-- Expected output structure
-- Optimization notes aligned with strategic enhancers
+- Lists inputs (mode, topic, persona, etc.)  
+- Describes each mode’s emotional trigger, structure, and content tone  
+- Output expectations: post + explanation  
+- Optimized for AI prompt chaining, copy refinement, and emotional alignment
 
 ---
 
 ### 🧠 `content-strategist-GPT-config.json`
 
-**Purpose:** Configuration reference file for the assistant’s full setup
+Snapshot of the assistant’s actual GPT configuration:
 
-- Mirrors the setup created in OpenAI’s Custom GPT builder  
-- Includes:
-  - Assistant name and description  
-  - `instructions` field (synced from `.md`)  
-  - Welcome message  
-  - Conversation starters  
-  - Model: `gpt-4` or `gpt-4o` (depending on current setup)  
-- Emojis and formatting are UTF-8 safe and properly escaped
+- **Name:** `Professional Content Strategist`  
+- **Description:** A role-based assistant that helps creators and strategists write powerful content in three distinct modes — from viral hooks to clear insights to story-led posts.  
+- **Instructions:** Full structured prompt architecture (see `content-strategist-GPT.md`)  
+- **Model:** `gpt-4o`  
+- **Tools Enabled:**
+  - ✅ Web browsing  
+  - ✅ Code interpreter  
+  - ✅ Image generation  
+  - ❌ Memory  
+- **Welcome Message:**  
+  _"Hi! Ready to create high-impact content? Choose a mode and tell me your topic, audience, and goal."_  
+- **Conversation Starters:**
+  - “Create a high-performance post about burnout for startup founders.”  
+  - “Write a Balanced Clarity carousel on AI onboarding for HR professionals.”  
+  - “Tell a Narrative Essence story about creative block and personal growth.”  
+  - “Guide me through a post using mode, persona, audience, topic, and more.”  
 
-> ⚠️ Note: OpenAI doesn’t currently support `.json` imports.  
-> This file is for **backup**, **version control**, and **manual recreation** in the GPT builder.
-
-> For tool capabilities and runtime settings, see `content-stategist-GPT-Capabilities.md`.
+> ⚠️ OpenAI’s Custom GPT builder does not currently support importing `.json` config files.  
+> Use this file for backup, version control, or manual reconstruction.
 
 ---
 
 ### 🧪 `content-strategist-GPT-capabilities.md`
 
-**Purpose:** Documents runtime capabilities and assistant settings from the Custom GPT builder UI.
+Documents GPT Builder UI configuration:
 
-- Covers model version, enabled tools (e.g. web browsing, DALL·E, code interpreter)  
-- Includes welcome message and conversation starters  
-- Tracks whether memory, uploaded knowledge files, or Actions are used  
-- Complements the `.json` config file (which does not include tools or UI settings)
+- Tool permissions: web browsing, image generation, code interpreter  
+- Memory setting  
+- Instruction sync source and conversation starters  
+- UI-level data for reproducibility or collaboration
 
-> Use this file as a **snapshot of behavior and permissions** configured via the GPT UI.  
-> It helps ensure transparency and reproducibility as your assistants evolve.
+---
 
+## 🚀 Quick Start
 
-### 🔗 Live Custom GPT
+1. Open ChatGPT and paste the `facing-prompt.md`  
+2. Choose your **Mode**, **Persona**, **Topic**, and **Audience**  
+3. Optionally adjust CTA style, emotion, or format  
+4. Review the assistant’s draft and iterate using:
+   - “Push this to a more emotional angle”  
+   - “Make this fit a carousel instead of a story”  
+   - “Rewrite for SaaS founders in finance”
+
+---
+
+## 📌 Live Custom GPT
 
 👉 [Launch the assistant on ChatGPT](https://chatgpt.com/g/g-685e778055e881919209238549e5f902-professional-content-strategist?model=gpt-4)
+
+---
+
+## 🔄 Versioning
+
+- **Current version:** v1.0.0  
+- **Last updated:** 2025-06-30  
+- **Changelog:** See `CHANGELOG.md` if included
+
+---
+
+## 📜 License
+
+MIT License unless otherwise specified.  
+Feel free to reuse and adapt with credit.
+
+---
+
+## 🤝 Contributing
+
+Want to add new modes, creative prompting strategies, or emotion shaping presets?  
+Fork this assistant or submit improvements — all contributions welcome.
+
+---
+
+## ❓ FAQ
+
+**Q: Can I add my own mode or rewrite structure?**  
+A: Yes — the prompt architecture is modular. You can add a fourth mode and update tone, CTA, or strategy logic.
+
+**Q: What’s the difference between High Performance and Balanced Clarity?**  
+A: High Performance maximizes reach with urgency and social proof. Balanced Clarity focuses on trust, insight, and accessibility.
+
+**Q: Is this just for LinkedIn?**  
+A: No — it works for Instagram carousels, X threads, newsletters, and more.
 
 ---
 

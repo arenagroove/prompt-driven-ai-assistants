@@ -1,16 +1,17 @@
-# PowerShell Script: Update GPT config and capabilities from .md
+# PowerShell Script: Update GPT config, capabilities, and README version from .md and VERSION
 # Run this script from inside the assistant folder
-# Required files: content-strategist-GPT.md + content-strategist-GPT-config.json
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-# Assistant name (change this if you rename files)
-$name = "content-strategist"
+# === Auto-detect assistant name from folder
+$name = Split-Path -Leaf (Get-Location)
 
 # === Paths
 $mdFile         = "$name-GPT.md"
 $jsonFile       = "$name-GPT-config.json"
 $capabilitiesMd = "$name-GPT-capabilities.md"
+$readmeFile     = "README.md"
+$versionFile    = "VERSION"
 
 # === Check files exist
 if (!(Test-Path $mdFile)) {
@@ -108,3 +109,37 @@ $capMd += @"
 
 $capMd | Set-Content -Path $capabilitiesMd -Encoding UTF8
 Write-Host "✅ Capabilities updated: $capabilitiesMd"
+
+# === Update README.md versioning date
+if (Test-Path $readmeFile) {
+    Write-Host "`n📘 Updating README versioning date..."
+    $today = Get-Date -Format "yyyy-MM-dd"
+    $readmeLines = Get-Content -Path $readmeFile -Encoding UTF8
+
+    $inVersioningBlock = $false
+    $updatedLines = foreach ($line in $readmeLines) {
+        if ($line -match '^## 🔄 Versioning') {
+            $inVersioningBlock = $true
+            $line
+        } elseif ($inVersioningBlock -and $line -match '^\s*- \*\*Last updated:\*\*') {
+            "- **Last updated:** $today"
+        } elseif ($inVersioningBlock -and $line -notmatch '^\s*- ') {
+            $inVersioningBlock = $false
+            $line
+        } else {
+            $line
+        }
+    }
+
+    # Warn if version is unchanged
+    $versionLine = $readmeLines | Where-Object { $_ -match '^\s*- \*\*Current version:\*\*' }
+    if ($versionLine -match 'v(\d+)\.(\d+)\.(\d+)') {
+        $ver = $Matches[0]
+        Write-Host "ℹ️ Current version: $ver — remember to bump if you changed assistant behavior." -ForegroundColor Yellow
+    }
+
+    $updatedLines | Set-Content -Path $readmeFile -Encoding UTF8
+    Write-Host "✅ README.md versioning date updated: $today"
+} else {
+    Write-Host "ℹ️ README.md not found — skipping versioning update."
+}

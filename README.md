@@ -9,7 +9,7 @@ Each assistant is built using:
 - 🔧 Structured Markdown instructions for assistant behavior  
 - 🗂 Config files aligned with Custom GPT setup  
 - 💬 Portable facing prompts for ChatGPT, Claude, Groq, etc.  
-- 🛠 Tooling for syncing config, regenerating capabilities, and tracking changes  
+- 🛠 Tooling for syncing config, regenerating capabilities, and tracking versions  
 
 ---
 
@@ -17,21 +17,34 @@ Each assistant is built using:
 
 ### ✅ Professional Content Strategist
 
-**This assistant helps professionals craft impactful social media content using one of three strategic modes — High Performance, Balanced Clarity, or Narrative Essence.**  
-Each mode is tailored to different goals, audiences, and tones, using modern copywriting, storytelling, and prompt engineering techniques.
-
-**Modes Overview:**
-- **High Performance** — maximize reach and conversions  
-- **Balanced Clarity** — deliver clear, professional insights  
-- **Narrative Essence** — build emotional connection through story
+**Helps professionals craft impactful social media content** using one of three strategic modes — High Performance, Balanced Clarity, or Narrative Essence.  
+Each mode aligns with a different goal, tone, and audience using storytelling, copywriting, and prompt engineering.
 
 **Folder:** `content-strategist/`  
 Includes:
 
-- `content-strategist-GPT.md` – Main behavior instructions  
-- `content-strategist-facing-prompt.md` – Prompt to use across ChatGPT, Claude, etc.  
-- `content-strategist-GPT-config.json` – Custom GPT configuration snapshot  
-- `content-strategist-GPT-capabilities.md` – Auto-generated summary of tools and assistant behavior   
+- `content-strategist-GPT.md` – Full assistant instructions  
+- `content-strategist-facing-prompt.md` – Reusable prompt  
+- `content-strategist-GPT-config.json` – Assistant config snapshot  
+- `content-strategist-GPT-capabilities.md` – Tools & behavior summary  
+- `VERSION` – Current version number  
+- `README.md` – Assistant-specific readme  
+
+---
+
+### 🧠 AI Reawakener
+
+**Specializes in reviving, reinterpreting, and evolving legacy creative and digital projects** using the latest AI tools and strategies (voice, image, agentic AI, etc.).
+
+**Folder:** `ai-reawakener/`  
+Includes:
+
+- `ai-reawakener-GPT.md` – Full reinterpretation assistant logic  
+- `ai-reawakener-facing-prompt.md` – Usable prompt for LLMs  
+- `ai-reawakener-GPT-config.json` – GPT builder config snapshot  
+- `ai-reawakener-GPT-capabilities.md` – Tools & behavior summary  
+- `VERSION` – Current version number  
+- `README.md` – Assistant-specific readme  
 
 ---
 
@@ -39,95 +52,104 @@ Includes:
 
 ### `update-gpt.ps1`
 
-A PowerShell script to keep your assistant's `.json` config in sync with its Markdown instructions.
+A PowerShell script to keep each assistant's `.json`, capabilities file, and README version block fully in sync.
 
-#### ✅ Features
+#### ✅ What it does
 
-- Escapes line breaks, backslashes, and quotes for JSON
-- Preserves emoji and UTF-8 characters correctly
-- Ensures all tool flags (`web_browsing`, `code_interpreter`, etc.) are present
-- Generates a `*-capabilities.md` file summarizing model, tools, and assistant behavior
-- Designed to run **from inside the assistant folder**
+- Escapes and injects `*-GPT.md` instructions into `*-GPT-config.json`
+- Ensures tool flags (`web_browsing`, `code_interpreter`, `image_generation`, `memory`) exist
+- Generates `*-GPT-capabilities.md` from config and timestamp
+- Reads the assistant version from a `VERSION` file
+- Updates the `README.md` inside the assistant folder with the current version and date
 
-#### 📁 Expected Files (in the same folder):
+#### 📁 Expected Files (in each assistant folder):
 
 - `[name]-GPT.md`  
-- `[name]-GPT-config.json`
+- `[name]-GPT-config.json`  
+- `VERSION`  
+- `README.md` *(optional, version block will be updated if present)*
 
 #### 🔧 Usage
 
 ```powershell
-cd ./content-strategist
+cd ./ai-reawakener
 ../tools/update-gpt.ps1
 ```
 
+> 🧠 Automatically infers the assistant name from the folder it runs in — no need to edit the script per assistant.
+
 ---
 
-## 🚀 How to Use This Repo
+## ✅ How to Use This Repo
 
 | File                               | Purpose                                               |
 |------------------------------------|-------------------------------------------------------|
 | `[name]-GPT.md`                    | Full Custom GPT instructions                          |
-| `[name]-facing-prompt.md`          | Reusable prompt for LLMs (ChatGPT, Claude, etc.)      |
-| `[name]-GPT-config.json`           | Assistant configuration snapshot                      |
-| `[name]-GPT-capabilities.md`       | Auto-generated summary of tools and behavior          |
-| `tools/update-gpt.ps1`             | Markdown-to-JSON sync and capabilities generator      |
-| `README.md`                        | Project overview and usage guide                      |
-| *(optional)* `PROJECTS.md`         | Assistant ideas and drafts                            |
+| `[name]-facing-prompt.md`          | Reusable prompt for ChatGPT, Claude, etc.             |
+| `[name]-GPT-config.json`           | Configuration snapshot for OpenAI GPT Builder         |
+| `[name]-GPT-capabilities.md`       | Tools, model, and behavior summary                    |
+| `VERSION`                          | Plain-text version number (e.g. `1.0.0`)              |
+| `README.md`                        | Assistant-specific overview and usage notes           |
+| `tools/update-gpt.ps1`             | Sync script (instructions → config → capabilities + README version)  
+
+---
+
+## 🔄 Versioning
+
+Each assistant folder includes a `VERSION` file for centralized tracking.
+
+- Manual version bumps (e.g. `1.0.1` → `1.1.0`) go in `VERSION`
+- The sync script auto-injects version into capabilities and README
+- You can also track changes in `CHANGELOG.md` (optional)
 
 ---
 
 ## ✅ Best Practices
 
-1. **Edit in Markdown** — All assistant logic lives in `.md` for clarity and portability  
-2. **Sync with PowerShell** — Run `update-gpt.ps1` to update `.json` and generate capabilities summary  
-3. **Run from inside each assistant folder** — This keeps paths simple and structure consistent  
-4. **Version manually or via Git** — Store assistants cleanly per folder to enable reuse and comparison  
-5. **Don’t upload `.json` to the GPT builder** — Use it for backup, documentation, or recreation only
+1. **Write assistant logic in Markdown**  
+2. **Use `update-gpt.ps1` to sync** your `.json`, capabilities, and version metadata  
+3. **Run script from inside the assistant folder**  
+4. **Keep folders self-contained** for easy reuse, testing, or launch  
+5. **Use Git for change history** — one commit per assistant update  
+6. **Don’t upload `.json` to OpenAI** — it’s for backup/reference only  
 
 ---
 
-## 🧪 Prompt Tracking & Feedback Loops
+## 🧪 Prompt Strategy Tips
 
-To make assistants more adaptive over time, consider building in feedback loops:
+Each assistant is designed to support:
 
-- Track which prompt variations get better engagement, clarity, or creativity
-- Use real-world signals like LinkedIn performance or team feedback
-- Compare prompt versions via Git commits or changelogs
-- Encourage testers or collaborators to give qualitative notes
-- Update `.md` files based on actual results, not just assumptions
+- Multi-step prompt chaining  
+- Creative drift and prompting techniques  
+- Role and tone alignment  
+- Portable use across ChatGPT, Claude, Groq, etc.  
 
-> This helps your assistant evolve from a static template into a testable, high-performance system.
+Use them as building blocks — not just templates.
 
 ---
 
-## 📦 File Naming Pattern for Future Assistants
+## 📦 Naming Convention
 
-Use the same structure:
+Each assistant uses:
 
 - `[name]-GPT.md`  
 - `[name]-facing-prompt.md`  
-- `[name]-GPT-config.json` 
-- `[name]-GPT-capabilities.json`   
+- `[name]-GPT-config.json`  
+- `[name]-GPT-capabilities.md`  
+- `README.md`  
+- `VERSION`  
 
 ---
 
-## 🧭 Topics & Focus
+## 🧭 Focus Areas
 
 This project combines:
 
 - 🧠 Prompt engineering  
-- 🎛 Modular assistant design  
-- 📎 Content creation strategy  
-- 🛠 Custom GPT configuration  
-
-Use this structure to build assistants like:
-
-- Copywriters  
-- Interviewers  
-- Research planners  
-- Content strategists  
-- Creative collaborators  
+- 🧩 Modular GPT assistant design  
+- 📎 Content and strategy workflows  
+- 🛠 Custom GPT best practices  
+- 🔁 Versioned assistant development  
 
 ---
 
@@ -140,10 +162,12 @@ Use this structure to build assistants like:
 
 ## ✅ Status
 
-- [x] Folder structure complete  
-- [x] First assistant implemented (Content Strategist)  
-- [x] Markdown + JSON + tooling added  
-- [ ] Second assistant in development  
+- [x] Modular folder structure complete  
+- [x] PowerShell tooling implemented  
+- [x] Versioning system with `VERSION` file  
+- [x] `Professional Content Strategist` assistant finalized  
+- [x] `AI Reawakener` assistant finalized  
+- [ ] Next assistant in exploration  
 
 ---
 
@@ -153,4 +177,4 @@ MIT — feel free to adapt, remix, or fork.
 
 ---
 
-> Designed for creators, strategists, and AI builders who want more than just a clever prompt — a system that scales.
+> Designed for creators, strategists, and AI builders who want more than clever prompts — a system that scales.
