@@ -2,15 +2,14 @@
 
 ![Cover](prompt-driven-ai-assistants_square-cover.png)
 
-This repository contains a modular framework for building reusable, prompt-driven AI assistants — starting with a **Professional Content Strategist**.
+This repository offers a modular framework for building reusable, role-based AI assistants — each with a clear purpose, portable prompts, and structured behavior.
 
-Each assistant is designed using:
+Each assistant is built using:
 
-- 🔧 Structured behavior prompts  
-- 🗂 Configuration aligned with Custom GPTs  
-- ✍️ Strategic content modes (High Performance, Balanced Clarity, Narrative Essence)  
+- 🔧 Structured Markdown instructions for assistant behavior  
+- 🗂 Config files aligned with Custom GPT setup  
 - 💬 Portable facing prompts for ChatGPT, Claude, Groq, etc.  
-- 🛠 Tooling for version control and safe prompt regeneration  
+- 🛠 Tooling for syncing config, regenerating capabilities, and tracking changes  
 
 ---
 
@@ -18,8 +17,10 @@ Each assistant is designed using:
 
 ### ✅ Professional Content Strategist
 
-Helps professionals craft scroll-stopping content using one of three strategic modes:
+**This assistant helps professionals craft impactful social media content using one of three strategic modes — High Performance, Balanced Clarity, or Narrative Essence.**  
+Each mode is tailored to different goals, audiences, and tones, using modern copywriting, storytelling, and prompt engineering techniques.
 
+**Modes Overview:**
 - **High Performance** — maximize reach and conversions  
 - **Balanced Clarity** — deliver clear, professional insights  
 - **Narrative Essence** — build emotional connection through story
@@ -30,6 +31,7 @@ Includes:
 - `content-strategist-GPT.md` – Main behavior instructions  
 - `content-strategist-facing-prompt.md` – Prompt to use across ChatGPT, Claude, etc.  
 - `content-strategist-GPT-config.json` – Custom GPT configuration snapshot  
+- `content-strategist-GPT-capabilities.md` – Auto-generated summary of tools and assistant behavior   
 
 ---
 
@@ -37,45 +39,50 @@ Includes:
 
 ### `update-gpt.ps1`
 
-A PowerShell script that updates `.json` config files with properly escaped Markdown instructions.
+A PowerShell script to keep your assistant's `.json` config in sync with its Markdown instructions.
 
 #### ✅ Features
 
-- Escapes line breaks and special characters for JSON  
-- Preserves emoji and formatting  
-- Ensures UTF-8 encoding  
-- Syncs Markdown `.md` with `.json` config safely  
+- Escapes line breaks, backslashes, and quotes for JSON
+- Preserves emoji and UTF-8 characters correctly
+- Ensures all tool flags (`web_browsing`, `code_interpreter`, etc.) are present
+- Generates a `*-capabilities.md` file summarizing model, tools, and assistant behavior
+- Designed to run **from inside the assistant folder**
 
-**Location:** `tools/`
+#### 📁 Expected Files (in the same folder):
+
+- `[name]-GPT.md`  
+- `[name]-GPT-config.json`
 
 #### 🔧 Usage
 
 ```powershell
-./tools/update-gpt.ps1 `
-  -MarkdownPath "../content-strategist-gpt/content-stategist-GPT.md" `
-  -JsonPath "../content-strategist-gpt/content-stategist-GPT-config.json"
-```
+cd ./content-strategist
+../tools/update-gpt.ps1
 
 ---
 
 ## 🚀 How to Use This Repo
 
-| File                              | Purpose                                          |
-|----------------------------------|--------------------------------------------------|
-| `*-GPT.md`                       | Full Custom GPT instructions                     |
-| `*-facing-prompt.md`             | Reusable input prompt for general LLMs           |
-| `*-GPT-config.json`              | Assistant setup and deployment snapshot          |
-| `tools/update-gpt.ps1`    	   | Markdown-to-JSON sync tool                       |
-| `README.md`                      | Project overview and instructions                |
-| *(optional)* `PROJECTS.md`       | Tracks upcoming assistants                       |
+| File                               | Purpose                                               |
+|------------------------------------|-------------------------------------------------------|
+| `[name]-GPT.md`                    | Full Custom GPT instructions                          |
+| `[name]-facing-prompt.md`          | Reusable prompt for LLMs (ChatGPT, Claude, etc.)      |
+| `[name]-GPT-config.json`           | Assistant configuration snapshot                      |
+| `[name]-GPT-capabilities.md`       | Auto-generated summary of tools and behavior          |
+| `tools/update-gpt.ps1`             | Markdown-to-JSON sync and capabilities generator      |
+| `README.md`                        | Project overview and usage guide                      |
+| *(optional)* `PROJECTS.md`         | Assistant ideas and drafts                            |
 
 ---
 
 ## ✅ Best Practices
 
-1. Use the `.md` files to update behavior and share versions  
-2. Use the `.json` to document your build or recreate it later  
-3. Keep this folder organized or zipped if sharing with others  
+1. **Edit in Markdown** — All assistant logic lives in `.md` for clarity and portability  
+2. **Sync with PowerShell** — Run `update-gpt.ps1` to update `.json` and generate capabilities summary  
+3. **Run from inside each assistant folder** — This keeps paths simple and structure consistent  
+4. **Version manually or via Git** — Store assistants cleanly per folder to enable reuse and comparison  
+5. **Don’t upload `.json` to the GPT builder** — Use it for backup, documentation, or recreation only
 
 ---
 
@@ -97,9 +104,10 @@ To make assistants more adaptive over time, consider building in feedback loops:
 
 Use the same structure:
 
-- `[YourAssistantName]-GPT.md`  
-- `[YourAssistantName]-facing-prompt.md`  
-- `[YourAssistantName]-GPT-config.json`  
+- `[name]-GPT.md`  
+- `[name]-facing-prompt.md`  
+- `[name]-GPT-config.json` 
+- `[name]-GPT-capabilities.json`   
 
 ---
 

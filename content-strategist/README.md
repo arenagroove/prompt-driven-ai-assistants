@@ -90,18 +90,4 @@ Includes:
 
 ---
 
-## ✅ Best Practices
-
-1. Use the `.md` files to update behavior and share versions  
-2. Use the `.json` to document your build or recreate it later  
-3. Keep this folder organized or zipped if sharing with others  
-
----
-
-## 📦 File Naming Pattern for Future Assistants
-
-Use the same structure:
-
-- `[YourAssistantName]-GPT.md`  
-- `[YourAssistantName]-facing-prompt.md`  
-- `[YourAssistantName]-GPT-config.json`  
+> Part of the [prompt-driven-ai-assistants](../README.md) system.
