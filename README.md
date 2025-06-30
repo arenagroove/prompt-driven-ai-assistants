@@ -59,6 +59,7 @@ A PowerShell script to keep your assistant's `.json` config in sync with its Mar
 ```powershell
 cd ./content-strategist
 ../tools/update-gpt.ps1
+```
 
 ---
 
